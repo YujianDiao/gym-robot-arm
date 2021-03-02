@@ -238,6 +238,8 @@ class RobotArmEnvV2(RobotArmEnvV0):
         self.max_theta = np.radians(90)
         self.action_space = spaces.Box(low=self.min_action, high=self.max_action, shape=(self.nLinks,), dtype=np.float32)
         self.set_link_properties([link_length]*self.nLinks)
+        obs_dim = len(self.target_pos) + len(self.theta)
+        self.observation_space = spaces.Box(np.finfo(np.float32).min, np.finfo(np.float32).max, shape=(obs_dim,), dtype=np.float32)
 
     def step(self, action):
         for i in range(self.nLinks):
