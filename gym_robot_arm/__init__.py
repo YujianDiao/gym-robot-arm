@@ -14,3 +14,8 @@ register(
     id='robot-arm-v2',
     entry_point='gym_robot_arm.envs:RobotArmEnvV2',
 )
+
+register(
+    id='robot-arm-v3',
+    entry_point='gym_robot_arm.envs:RobotArmEnvV3',
+)
